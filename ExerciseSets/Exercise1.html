@@ -78,5 +78,69 @@
                 </ul>
             </ol>
         </ol>
+
+        <button onclick="showTable()">Table View</button>
+
+        <table border="1" class="schedule" style="display: none;">
+            <th>SCHEDULE</th>
+
+            <tr>
+                <td>MONDAY</td>
+                <td>TUESDAY</td>
+                <td>WEDNESDAY</td>
+                <td>THURSDAY</td>
+                <td>FRIDAY</td>
+            </tr>
+
+            <tr>
+                <td>No Class</td>
+                <td>
+                    <li>Application Development</li>
+                    <li>Web Systems</li>
+                    <li>Contemporary World</li>
+                </td>
+                <td>
+                    <li>Data Analysis</li>
+                    <li>Human Computer Interaction</li>
+                    <li>Application Development</li>
+                    <li>Automata Theory</li>
+                    <li>Contemporary World</li>
+                </td>
+                <td>
+                    <li>Mobile Computing</li>
+                </td>
+                <td>
+                    <li>Data Analysis</li>
+                    <li>Web Systems</li>
+                    <li>Web Systems</li>
+                    <li>Automata Theory</li>
+                </td>
+            </tr>
+        </table>
+
+
+        <footer style="width:100%; height:50px; justify-content: center; align-items: center; background-color: gray;">
+            <b>Done</b>
+        </footer>
+
+        <script>
+            let click = false;
+
+            function showTable() {
+                const tables = document.getElementsByClassName('schedule');
+
+                if (click === false) {
+                    for (let i = 0; i < tables.length; i++) {
+                        tables[i].style.display = 'block';
+                    }
+                    click = true; 
+                } else {
+                    for (let i = 0; i < tables.length; i++) {
+                    tables[i].style.display = 'none';
+                    }
+                    click = false; 
+                }
+            }
+        </script>
     </body>
 </html>
