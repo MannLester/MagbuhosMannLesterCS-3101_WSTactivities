@@ -55,7 +55,6 @@ textarea:focus {
     text-shadow: 0 0 3px #00ff00;
 }
 
-/* Blinking cursor effect */
 @keyframes blink {
     0% { opacity: 0; }
     50% { opacity: 1; }
