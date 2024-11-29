@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #3498db;
+    --hover-color-1: #e74c3c;
+    --hover-color-2: #f39c12;
+    --hover-color-3: #2ecc71;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    --transition-speed: 0.2s;
+    --box-width: min(300px, 90vw);
+    --container-padding: 20px;
+    --color-1: #e74c3c;  
+    --color-2: #2ecc71;
+    --color-3: #f1c40f; 
+    --color-4: #9b59b6;
+    --color-5: #e67e22;
+    --color-6: #1abc9c;
+    --color-7: #34495e;
+    --color-8: #d35400;
+
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --box-background: #ffffff;
+    --box-border: #ddd;
+    --primary-grid-color: #3498db;
+}
+
+[data-theme="dark"] {
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+    --box-background: #2d2d2d;
+    --box-border: #444;
+    --primary-grid-color: #2980b9;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.background-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    z-index: 0;
+    gap: 1px;
+}
+
+.background-grid div {
+    background-color: var(--primary-grid-color);
+    border: 1px solid #fff;
+    transition: background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.background-grid div:hover {
+    transform: scale(1.1);
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.flex-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: var(--container-padding);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(10px, 3vw, 20px);
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.box {
+    margin-top: clamp(20px, 4vh, 8%);
+    padding: clamp(15px, 3vw, 20px);
+    width: var(--box-width);
+    flex: 1 1 300px;
+    max-width: 400px;
+    background-color: var(--box-background);
+    border: 2px solid var(--box-border);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    transition: transform var(--transition-speed) ease;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.box:hover {
+    transform: scale(1.05);
+}
+
+.box:active {
+    transform: scale(0.95);
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .flex-container {
+        gap: 15px;
+    }
+
+    .box {
+        margin-top: 15px;
+        font-size: 0.95rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .box {
+        margin-top: 10px;
+        font-size: 0.9rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+
+    p {
+        margin-bottom: 8px;
+    }
+}
+
+@media screen and (max-height: 480px) and (orientation: landscape) {
+    .flex-container {
+        padding-top: 10px;
+        align-items: flex-start;
+    }
+
+    .box {
+        margin-top: 5px;
+        padding: 15px;
+    }
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.theme-toggle button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+    padding: 10px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle button:hover {
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+.particle {
+    position: absolute;
+    pointer-events: none;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 1000;
+}
+
+[data-theme="dark"] .background-grid div {
+    background-color: #333333;
+}
